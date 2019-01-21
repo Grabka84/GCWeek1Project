@@ -25,15 +25,16 @@ public class PigLatin {
 			// put each word of the string into an array of undefined size (0)
 			String[] arrayOfString = userWordLowerCase.split(" ", 0); 
 			
-			// for each word in the array, do the program to check if vowel, then print the appropriate response
+			// for each word in the array, do the program to check if the word contains a special character, then 
+			// check each character in the word until it hits a vowel, then print the appropriate response
 			for (String word : arrayOfString) {
-			// checks if the word has a special character in it, and prints the word as is
+			// isNotLetter checks if the word has a special character in it, and prints the word as is
 			// otherwise, runs the vowel checking portion
-				if (isSpecialCharacter(word)) {
+				if (isNotLetter(word)) {
 					System.out.print(word + " ");
 				} else {
 					for(int i = 0 ; i < word.length(); i++) {
-						// if the first letter of the word is a vowel, do "word + way" and exit the loop
+						// if the first letter of the word is a vowel, do word + "way" and exit the loop with the break
 						if(isVowel(0,word)) { 
 							System.out.print(word + "way ");
 							break;
@@ -58,6 +59,8 @@ public class PigLatin {
 		
 		// if the user chooses, goes back up to do line
 		} while (anotherLine.equals("y") || anotherLine.equals("Y")); 
+		
+		System.out.println("Thank you! Oodbyegay!");
 		scnr.close(); // close the scanner
 	}	
 	
@@ -75,7 +78,7 @@ public class PigLatin {
 	}
 	
 	// checks if the word contains any of the special characters
-	public static boolean isSpecialCharacter(String word) {
+	public static boolean isNotLetter(String word) {
 		if(word.contains("@")||
 				word.contains("1")||
 				word.contains("2")||
